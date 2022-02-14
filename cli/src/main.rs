@@ -3,8 +3,9 @@ use std::{env, process};
 use cli::{run, Config};
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-    let config = Config::new(&args).unwrap_or_else(|err| {
+    // let args: Vec<String> = env::args().collect();
+    let args = env::args();
+    let config = Config::new(args).unwrap_or_else(|err| {
         eprintln!("{}", err);
         process::exit(1);
     });
